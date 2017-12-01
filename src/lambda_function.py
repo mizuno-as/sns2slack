@@ -12,9 +12,9 @@ def lambda_handler(event, context):
 
     channel = os.getenv("CHANNEL", "#sns")
     name = os.getenv("NAME", "SNS")
+    color = os.getenv("COLOR", "good")
     slack = slackweb.Slack(url=url)
     message = event['Records'][0]['Sns']['Message']
-    color = "good"
 
     slack.notify(channel=channel,
                  username=name,
